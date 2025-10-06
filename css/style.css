@@ -1,0 +1,709 @@
+/* Variables y Reset Básico */
+:root {
+    --color-dark: #0f0f1a; /* Fondo principal */
+    --color-light-dark: #1a1a2e; /* Fondo de tarjetas y elementos */
+    --color-neon-pink: #ff2d95; /* Color neón principal (rosa) */
+    --color-neon-blue: #3762d1; /* Color neón secundario (azul) */
+    --color-text-light: #e0e0e0; /* Texto claro */
+    --color-text-darker: #aaa; /* Texto secundario/pie de página */
+    --font-main: 'Inter', sans-serif;
+    --border-radius-base: 12px;
+    --box-shadow-neon-pink: 0 0 15px rgba(240, 78, 152, 0.5);
+    --box-shadow-neon-blue: 0 0 15px rgba(55, 98, 209, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    font-family: var(--font-main);
+    min-height: 100vh;    
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /*  (suavizado de bordes) */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+.container {
+    max-width: 1280px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 0 16px 16px 16px;
+    
+}
+
+/* Estilos de Tipografía General */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem; 
+    margin-top: 1rem;       
+    color: var(--color-neon-blue); /* Títulos principales con color azul neón */
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* HEADER y NAV */
+header {
+    background-color: rgba(15, 15, 26, 0.95); /* Fondo semitransparente */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+}   
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 2.2rem; /* Ajuste para un tamaño de logo más impactante */
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: var(--color-neon-pink);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--color-neon-blue);
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem; /* Aumento del espacio entre enlaces */
+}
+
+.nav-link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 0%;
+    height: 3px;
+    background-color: var(--color-neon-pink);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    transform: translateX(-50%) scaleX(1);
+}
+
+.nav-link:hover {
+    color: var(--color-neon-pink);
+    transform: translateY(-2px);
+}
+
+/* Botones call to action y Elementos Interactivos */
+.cta-button, .neon-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--color-neon-pink), #ff7eb9); /* Degradado */
+    color: var(--color-dark);
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    box-shadow: var(--box-shadow-neon-pink);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cta-button:hover, .neon-button:hover {
+    background: linear-gradient(45deg, var(--color-neon-blue), #6a9aff);
+    color: #fff;
+    box-shadow: 0 0 25px var(--color-neon-blue);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.neon-button {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    padding: 1.1rem 2.2rem;
+}
+
+/* MAIN SECTIONS */
+
+.section-padding {
+    padding: 3rem 0;
+    margin-bottom: 2rem; /* Espacio entre secciones */
+    background-color: var(--color-light-dark); /* Fondo para secciones de contenido */
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem; /* Padding interno */
+}
+
+/* SECCIÓN HERO */
+#hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
+    background-color: rgba(15, 15, 26, 0.8); 
+    border-radius: var(--border-radius-base);
+    margin-top: 2rem;
+    padding: 3rem;
+    box-shadow: var(--box-shadow-neon-blue);
+}
+
+#hero-section h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 20px rgba(55, 98, 209, 0.7);
+    line-height: 1;
+}
+
+#hero-section p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    color: var(--color-text-light);
+}
+
+/* SECCIÓN PRESENTACIÓN DEL FESTIVAL */
+.festival-presentation {
+    text-align: center;
+    padding: 3rem;
+    margin-top: 3rem;
+}
+
+.festival-presentation h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light); /* Texto blanco para el "¡La Música Te Llama!" */
+}
+
+.neon-glow {
+    text-shadow: 0 0 10px var(--color-neon-pink), 0 0 20px var(--color-neon-pink);
+    color: var(--color-neon-pink);
+}
+
+.blue-neon {
+    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+    color: var(--color-neon-blue);
+}
+
+/* SECCIÓN HISTORIA Y ESTILOS */
+.history-styles {
+    display: flex;
+    flex-direction: column; /* Por defecto en columna para móviles */
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+}
+
+.history-styles .history-content {
+    flex: 1;
+    max-width: 600px; /* Limitar ancho del texto */
+}
+
+.history-styles .festival-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-blue);
+}
+
+.text-neon {
+    color: var(--color-neon-pink);
+    font-weight: bold;
+}
+
+
+
+/* HIGHLIGHTS SECTION */
+.highlights-section {
+    margin-top: 1rem;   
+    background-color: var(--color-dark); 
+    box-shadow: none; 
+}
+
+.highlights-section h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: 2.5rem;   
+    text-align: center;
+    color: var(--color-neon-pink);
+    border-bottom: 3px solid var(--color-neon-pink);
+    padding-bottom: 0.8rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.highlight-card {
+    background-color: var(--color-light-dark);
+    padding: 2rem;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-pink);
+    border: 1px solid var(--color-neon-pink);
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1 1 100%; /*  todo el ancho en móvil */
+    max-width: 350px; /* ancho máximo de  tarjeta */
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px var(--color-neon-blue);
+    border-color: var(--color-neon-blue);
+}
+
+.highlight-card h3 {
+    color: var(--color-neon-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.highlight-card .icon {
+    font-size: 3.5rem; 
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 8px rgba(240, 78, 152, 0.6);
+}
+
+.artist-card{
+    background-color: var(--color-light-dark);
+    padding: 2rem;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-pink);
+    border: 1px solid var(--color-neon-pink);
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1 1 100%; /* Ocupa todo el ancho en móvil */
+    max-width: 100%; /* Limitar el ancho máximo de la tarjeta */
+   
+    margin-bottom: 1rem;
+}   
+.artist-image{
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-pink);
+    margin-bottom: 1rem;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px var(--color-neon-blue);
+    border-color: var(--color-neon-blue);
+}
+
+/*TABLA DE PROGRAMACIÓN */
+.cronograma-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+  color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/*Encabezado */
+.cronograma-table thead {
+  background: #ff2d95;
+}
+
+.cronograma-table th {
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/*Celdas del cuerpo */
+.cronograma-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Filas alternadas */
+.cronograma-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cronograma-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/*Hover interactivo */
+.cronograma-table tbody tr:hover {
+  background: rgba(255, 45, 149, 0.25);
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+}
+
+/*Escenario destacado */
+.stage-neon {
+  color: #00ffe0;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffe0;
+}
+
+
+/* SECCIÓN MULTIMEDIA Y MAPA */
+.multimedia-map-section {
+    display: flex;
+    flex-direction: column; /* Por defecto en columna para móviles */
+    gap: 3rem;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.multimedia-content {
+    flex: 2; 
+}
+
+.multimedia-content h2 {
+    margin-bottom: 2rem;
+    color: var(--color-neon-pink);
+    border-bottom: 3px solid var(--color-neon-pink);
+    padding-bottom: 0.5rem;
+}
+
+.multimedia-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-neon-blue);
+    font-size: 1rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px var(--color-neon-pink);
+}
+/* Borde para indicar que es video */
+.video-link-image {
+    border: 3px solid var(--color-neon-pink); 
+    cursor: pointer;
+}
+
+
+.video-player, .audio-player, .youtube-iframe {
+    width: 100%;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-blue);
+    margin-bottom: 1.5rem;
+}
+
+.audio-player {
+    height: 50px;
+}
+
+.map-container {
+    flex: 1; /* Ocupa menos espacio en desktop */
+    min-width: 220px; /* Ancho mínimo para el mapa */
+    background-color: var(--color-light-dark);
+    
+    padding: 1rem;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-neon-blue);
+    text-align: center;
+    
+}
+
+.map-container h2 {
+    color: var(--color-neon-pink);
+    border-bottom: 3px solid var(--color-neon-pink);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+/* SECCIÓN DE LISTAS */
+.list-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #2b2b45, #1e1e2f);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+/* Responsive */
+
+/* Cada bloque de lista */
+.list-section div {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/*  Títulos */
+.list-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #ff2d95;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+/*  Lista no ordenada */
+.list-section ul {
+    list-style: none;
+  padding: 0;
+}
+
+.list-section ul li {
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.list-section ul li::before {
+    content: "✔️";
+    margin-right: 0.5rem;
+    color: #00ffe0;
+}
+
+/*  Lista ordenada */
+.list-section ol {
+    padding-left: 1.2rem;
+    counter-reset: item;
+}
+
+.list-section ol li {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    position: relative;
+}
+
+.list-section ol li::marker {
+    color: #ff2d95;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+/*form contac*/
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-neon-pink);
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-base);
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form fieldset {
+    border: 1px solid var(--color-text-darker);
+    padding: 1.5rem 1rem;
+    border-radius: var(--border-radius-base);    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background-color: rgba(15, 15, 26, 0.95);
+    border-top: 1px solid rgba(55, 98, 209, 0.3);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer p {
+    color: var(--color-text-darker);
+    font-size: 0.9rem;
+}
+.social-links a {
+    color: var(--color-neon-pink);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    list-style: none;      
+}
+
+.author-name {
+    color: var(--color-neon-pink);
+    font-weight: bold;
+}
+
+/* Media Queries para Responsividad */
+/* 📱 Responsive */
+@media (min-width: 768px) {
+    /* Header */
+    header .container {
+        height: 90px;
+    }
+    
+    /* Highlights Section - 3 columnas */
+    .highlight-card {
+        flex-basis: calc(33.333% - (2 * 2rem / 3)); /* Ajuste para 3 columnas con 2rem de gap */
+        max-width: none; /* Eliminar el max-width para que flex-basis funcione */
+    }
+    
+    /* History and Styles - Fila de 2 columnas */
+    .history-styles {
+        flex-direction: row; /* En fila para desktop */
+        text-align: left;
+    }
+    .history-styles .history-content {
+        order: 1;
+    }
+    .history-styles .festival-image {
+        order: 2;
+    }
+    
+    /* Multimedia y Mapa - 2 columnas */
+    .multimedia-map-section {
+        flex-direction: row;
+    }
+}
+@media (max-width: 768px) {
+  .cronograma-table thead {
+    display: none;
+  }
+
+  .cronograma-table, 
+  .cronograma-table tbody, 
+  .cronograma-table tr, 
+  .cronograma-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .cronograma-table tr {
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1rem;
+  }
+
+  .cronograma-table td {
+    padding: 0.7rem 0;
+    text-align: right;
+    position: relative;
+  }
+
+  .cronograma-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff2d95;
+  }
+   .list-section {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+    /* Ajustes para pantallas más grandes */
+    main {
+        padding: 6rem 0;
+    }
+    .section-padding {
+        padding: 3.5rem;
+    }
+    .logo {
+        font-size: 2.5rem;
+    }
+    .nav-link {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animación de Títulos Neón */
+h1 span, h2 span {
+    display: inline-block;
+    animation: neon-pulse 1.5s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    from {
+        text-shadow: 0 0 5px rgba(240, 78, 152, 0.5), 0 0 10px rgba(55, 98, 209, 0.5);
+    }
+    to {
+        text-shadow: 0 0 10px rgba(240, 78, 152, 0.8), 0 0 20px rgba(55, 98, 209, 0.8), 0 0 30px rgba(240, 78, 152, 0.3);
+    }
+}

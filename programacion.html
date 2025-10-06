@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Fest - Programación</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="antialiased">
+
+    <!-- CABECERA y NAVEGACIÓN -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Vibe Fest</a>
+            <nav aria-label="Navegación de Programación">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="programacion.html" class="nav-link">Programación</a>
+                <a href="contacto.html" class="nav-link">Tickets</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <div class="container">
+            
+            <!-- SECCIÓN DE DESCRIPCIÓN DE ARTISTAS -->
+            <section class="highlights-section highlights">    
+                <h2 class="highlight-title"> Grilla de Shows</h2>
+              
+                
+                <!-- FLEX CONTAINER -->
+                <div class="highlight-grid">
+                    <!-- Artista 1 (Article) -->
+                    <article class="highlight-card">
+                        <img class="artist-image" src="./img/echowaves.jpg" alt="Imagen de la banda Echo Waves">
+                        <h3>Echo Waves</h3>
+                        <p class="artist-info">
+                            <strong>Género:</strong> Indie-Pop Melancólico |
+                            <strong>Origen:</strong> España
+                        </p>
+                        <p >
+                            Su sonido fusiona sintetizadores vintage con letras introspectivas. Una experiencia sonora única para el cierre del día 1.
+                        </p>
+                    </article>
+
+                    <!-- Artista 2 (Div con Span) -->
+                    <div class="highlight-card">
+                        <img class="artist-image" src="./img/cypher-beat.jpg" alt="Imagen de Cypher Beat, artista de electrónica">
+                        <h3>Cypher Beat</h3>
+                        <p class="artist-info">
+                            <strong>Género:</strong> Techno / House Progresivo |
+                            <span>Origen:</span> Argentina
+                        </p>
+                        <p >
+                            La reina de las pistas. Su set de alto voltaje garantiza que la madrugada en el Escenario Orbital sea inolvidable.
+                        </p>
+                    </div>
+
+                    <!-- Artista 3 (Article) -->
+                    <article class="highlight-card">
+                        <img  class="artist-image" src="./img/luna-solaris.jpg" alt="Imagen de Luna Solaris">
+                        <h3>Luna Solaris</h3>
+                        <p class="artist-info">
+                            <strong>Género:</strong> Pop Alternativo |
+                            <strong>Origen:</strong> México
+                        </p>
+                        <p >
+                            Con su voz potente y temas pegadizos, es la banda sonora perfecta para el atardecer del sábado en el Escenario Terra.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE TABLA DE PROGRAMACIÓN -->
+            <section id="programacion-tabla">
+                <h2>Horarios por Día y Escenario</h2>
+                
+                <table class="cronograma-table">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora</th>
+                            <th>Artista</th>
+                            <th>Escenario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Día">Viernes</td>
+                            <td data-label="Hora">19:00</td>
+                            <td data-label="Artista">Nova Waves</td>
+                            <td data-label="Escenario">Solar</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Día">Viernes</td>
+                            <td data-label="Hora">22:00</td>
+                            <td data-label="Artista">Luna Solaris</td>
+                            <td data-label="Escenario" class="stage-neon">Terra</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Día">Sábado</td>
+                            <td data-label="Hora">18:30</td>
+                            <td data-label="Artista">Atomic Pop</td>
+                            <td data-label="Escenario">Solar</td>
+                        </tr>
+                        
+                       
+                     
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECCIÓN DE LISTAS -->
+            <section class="list-section">
+                <!-- Lista No Ordenada (Lo que incluye la entrada) -->
+                <div>
+                    <h2>Tu Entrada Incluye</h2>
+                    <ul>
+                        <li>Acceso a los 3 escenarios principales.</li>
+                        <li>Zonas de descanso temáticas Vibe.</li>
+                        <li>Servicios médicos y de hidratación gratuitos.</li>
+                        <li>Acceso al mercado de arte y gastronomía.</li>
+                    </ul>
+                </div>
+
+                <!-- Lista Ordenada (Recomendaciones) -->
+                <div>
+                    <h2>Consejos y Recomendaciones</h2>
+                    <ol>
+                        <li>Llega temprano para asegurar buen lugar.</li>
+                        <li>Mantente hidratado; el calor será intenso.</li>
+                        <li>Usa protector solar y calzado cómodo.</li>
+                        <li>Programa tu viaje de regreso con anticipación.</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+               <p>
+                Diseño y Desarrollo por: <span class="author-name">Cecilia Paniagua</span>. Festival Vibe Fest &copy; 2025.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
