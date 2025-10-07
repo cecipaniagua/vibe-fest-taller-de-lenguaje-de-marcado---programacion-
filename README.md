@@ -1,4 +1,4 @@
-# primer entrega de taller de lenguaje de marcado
+# Primer entrega de Taller de Lenguaje de Marcado
 # 🎶 Vibe Fest – Festival de Música  
 
 ## 📌 Descripción  
